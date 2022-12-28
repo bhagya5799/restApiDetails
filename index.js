@@ -26,4 +26,50 @@ app.post('/getall', async(request,response) => {
     }
 })
 
+
+app.get('/', async(request,response) => {
+    try{
+        return response.json(await RestApi.find())
+    }
+    catch(err){
+        console.log(err.message)
+    } 
+})
+
+app.get('/getOneData/:id', async(request,response) => {
+    const {id} = request.params
+    try{
+        const idVal = await RestApi.findById(id)
+        response.send(idVal)
+    }
+    catch(err){
+        console.log(err.message)
+    }
+
+})
+
+app.put('/updateVal/:id' , async(request,response) => {
+    const {id} = request.params
+    try{
+        await RestApi.findOneAndUpdate({_id:id}, request.body)
+        
+    }
+    catch(err){
+        console.log(err.message)
+    }
+})
+
+
+app.delete('/deleteVal/:id', async (request,response) => {
+    const {id} = request.params.id
+    try{
+        await RestApi.findOneAndDelete(id)
+        return response.json(await RestApi.find())
+        
+    }
+    catch(err){
+        console.log(err.message)
+    }
+})
+
 app.listen(process.env.PORT || 3009, ()=> console.log('running'))

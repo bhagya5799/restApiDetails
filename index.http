@@ -3,6 +3,28 @@ Content-Type: application/json
 
 
 {
-    "name": "jani",
-    "emailId": "janua818gmail.com"
+    "name": "bhagya",
+    "emailId": "bhagya818gmail.com"
 }
+
+
+###
+get http://localhost:3009/
+
+
+###
+get http://localhost:3009/getOneData/63ac12bca878a68d1fc2a561
+
+###
+PUT  http://localhost:3009/updateVal/63ac286be5ee78a9c21dc08f
+Content-Type: application/json
+
+
+{
+     "name": "bujji",
+    "emailId": "Bujii818gmail.com"
+}
+
+
+###
+DELETE http://localhost:3009/deleteVal/63ac286be5ee78a9c21dc08f
