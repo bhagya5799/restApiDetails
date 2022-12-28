@@ -1,0 +1,8 @@
+post  http://localhost:3009/getAll
+Content-Type: application/json
+
+
+{
+    "name": "jani",
+    "emailId": "janua818gmail.com"
+}
